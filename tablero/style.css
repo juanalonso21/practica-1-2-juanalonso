@@ -1,0 +1,235 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #1a3a1a;
+    color: #fdfaf6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #e8ebe4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+h1 {
+    color: #e63946;
+    text-align: center; 
+    font-weight: bold;
+    font-size: 3.5em;
+}
+
+h2 {
+    color: #1e5934;
+    text-align: center;
+}
+
+section {
+    background-color: #dcdfda;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #c8ccc5;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+button {
+    background-color: #e63946;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c81e2b;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+.message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+#participantsList {
+    list-style: none;
+    padding: 0;
+}
+
+#participantsList li {
+    background-color: #e8ebe4;
+    border: 1px solid #c8ccc5;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.board-cell {
+    width: 100%;
+    padding-top: 100%; /* Makes cells square */
+    position: relative;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+.board-cell:hover {
+    transform: scale(1.1);
+}
+
+.board-cell.occupied {
+    background-color: #e63946;
+    color: #fdfaf6;
+}
+
+.board-cell.occupied:hover {
+    background-color: #c81e2b;
+}
+
+.board-cell.free {
+    background-color: #5a8f7b;
+    color: #fdfaf6;
+}
+
+.board-cell.free:hover {
+    background-color: #7aa899;
+}
+
+.board-cell span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+/* Modal Styles for <dialog> */
+.modal {
+    border: none; /* Remove default dialog border */
+    padding: 0; /* Remove default dialog padding */
+    background-color: transparent; /* Make background transparent to allow modal-content to define its own */
+}
+
+.modal::backdrop {
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity for backdrop */
+}
+
+.modal-content {
+    background-color: #f4f4f4;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 8px;
+    position: relative;
+    color: #333;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.modal-section:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .board-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    section {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .board-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}

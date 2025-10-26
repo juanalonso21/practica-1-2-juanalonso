@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Raffle Board</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <h1>Christmas Raffle Board</h1>
+
+        <section id="raffle-board-section">
+            <h2>Raffle Board</h2>
+            <div id="board" class="board-grid"></div>
+        </section>
+
+        <section id="draw-winner-section">
+            <h2>Draw Winner</h2>
+            <input type="text" id="winningNumberInput" placeholder="Winning Number (00-99)">
+            <button id="drawWinnerBtn">Draw</button>
+            <div id="winnerDisplay" class="message"></div>
+        </section>
+
+        <section id="statistics-section">
+            <h2>Statistics</h2>
+            <p>Occupied: <span id="occupiedCount">0</span></p>
+            <p>Free: <span id="freeCount">100</span></p>
+            <p>Total Participants: <span id="totalParticipants">0</span></p>
+        </section>
+
+        <section id="participants-section">
+            <h2>Participants</h2>
+            <button id="openRegisterParticipantModalBtn">Register New Participant</button>
+            <ul id="participantsList"></ul>
+        </section>
+    </main>
+
+    <!-- Register Participant Modal -->
+    <dialog id="registerParticipantModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" data-close-modal>&times;</button>
+            <h2>Register Participant</h2>
+            <input type="text" id="modalParticipantName" placeholder="Name">
+            <input type="email" id="modalParticipantEmail" placeholder="Email">
+            <input type="text" id="modalParticipantPhone" placeholder="Phone (optional)">
+            <button id="modalRegisterParticipantBtn">Register</button>
+            <div id="modalParticipantMessage" class="message"></div>
+        </div>
+    </dialog>
+
+    <!-- Reserve Number Modal -->
+    <dialog id="reserveNumberModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" data-close-modal>&times;</button>
+            <h2>Reserve Number: <span id="modalNumberToReserve"></span></h2>
+            
+            <div class="modal-section">
+                <h3>Existing Participant</h3>
+                <select id="modalParticipantSelect"></select>
+                <button id="modalReserveExistingBtn">Reserve for Existing</button>
+                <button id="modalFreeNumberBtn" style="display:none;">Free Number</button>
+            </div>
+
+            <div class="modal-section">
+                <h3>New Participant</h3>
+                <input type="text" id="modalNewParticipantName" placeholder="Name">
+                <input type="email" id="modalNewParticipantEmail" placeholder="Email">
+                <input type="text" id="modalNewParticipantPhone" placeholder="Phone (optional)">
+                <button id="modalReserveNewBtn">Register & Reserve</button>
+            </div>
+            <div id="modalReserveMessage" class="message"></div>
+        </div>
+    </dialog>
+
+    <script src="dist/script.js"></script>
+</body>
+</html>
