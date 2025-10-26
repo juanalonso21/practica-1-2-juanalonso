@@ -1,2 +1,2 @@
-tablero/dist/
-tablero/node_modules/
+/tablero/node_modules/  
+/tablero/dist/ 
